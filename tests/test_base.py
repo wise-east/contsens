@@ -1,5 +1,5 @@
-from project_name.base import NAME
+from csci699_dcnlp_projectcode.base import NAME
 
 
 def test_base():
-    assert NAME == "project_name"
+    assert NAME == "csci699_dcnlp_projectcode"

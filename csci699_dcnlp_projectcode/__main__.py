@@ -1,4 +1,4 @@
-"""Entry point for project_name."""
+"""Entry point for csci699_dcnlp_projectcode."""
 
 from .cli import main  # pragma: no cover
 
