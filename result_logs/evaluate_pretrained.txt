@@ -1,0 +1,2 @@
+t5 base size: 
+2022-10-30 22:52:07.665 | INFO     | __main__:<module>:49 - loss results: orig - 4.867059308703583 | perturbed - 4.868017109313814
