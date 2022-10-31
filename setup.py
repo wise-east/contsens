@@ -30,17 +30,17 @@ def read_requirements(path):
 
 
 setup(
-    name="csci699_dcnlp_projectcode",
-    version=read("csci699_dcnlp_projectcode", "VERSION"),
-    description="Awesome csci699_dcnlp_projectcode created by wise-east",
-    url="https://github.com/wise-east/csci699_dcnlp_projectcode/",
+    name="contsens",
+    version=read("contsens", "VERSION"),
+    description="project_description",
+    url="https://github.com/author_name/project_urlname/",
     long_description=read("README.md"),
     long_description_content_type="text/markdown",
     author="wise-east",
     packages=find_packages(exclude=["tests", ".github"]),
     install_requires=read_requirements("requirements.txt"),
     entry_points={
-        "console_scripts": ["csci699_dcnlp_projectcode = csci699_dcnlp_projectcode.__main__:main"]
+        "console_scripts": ["contsens = contsens.__main__:main"]
     },
     extras_require={"test": read_requirements("requirements-test.txt")},
 )
