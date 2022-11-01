@@ -1,2 +1,16 @@
+Sentence shuffling
+
 t5 base size: 
 2022-10-30 22:52:07.665 | INFO     | __main__:<module>:49 - loss results: orig - 4.867059308703583 | perturbed - 4.868017109313814
+
+small size: 
+2022-10-31 11:07:57.277 | INFO     | __main__:<module>:51 - loss results: orig - 4.867066248808757 | perturbed - 4.8777285590030175
+
+large size: 
+2022-10-31 11:09:18.958 | INFO     | __main__:<module>:51 - loss results: orig - 4.085505152692889 | perturbed - 4.170650357066995
+
+xl size: 
+2022-10-31 11:32:38.710 | INFO     | __main__:<module>:51 - loss results: orig - 3.785248004563964 | perturbed - 3.792963755012739
+
+xl size with 200 
+2022-10-31 11:35:34.013 | INFO     | __main__:<module>:51 - loss results: orig - 3.8055995008838712 | perturbed - 3.797685482015657

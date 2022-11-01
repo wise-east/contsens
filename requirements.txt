@@ -4,7 +4,6 @@ datasets==2.6.1
 sentencepiece==0.1.97
 loguru==0.6.0
 jupyter==1.0.0
-notebook====6.5.1
 pytorch-lightning==1.7.7
 spacy==3.4.2
 numpy==1.23.4
