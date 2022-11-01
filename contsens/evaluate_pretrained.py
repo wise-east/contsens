@@ -18,7 +18,8 @@ model = T5ForConditionalGeneration.from_pretrained(f"{MODEL}-{MODEL_SIZE}").to(d
 
 dataset = load_dataset("c4", "realnewslike", split="validation")
 nlp = spacy.load("en_core_web_md")
-
+# TODO batch inference
+# TODO more perturbations
 orig_loss_sum = []
 perturbed_loss_sum = []
 with torch.no_grad(): 

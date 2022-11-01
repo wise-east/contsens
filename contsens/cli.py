@@ -12,7 +12,7 @@ Be creative! do whatever you want!
 def main():  # pragma: no cover
     """
     The main function executes on commands:
-    `python -m csci699_dcnlp_projectcode` and `$ csci699_dcnlp_projectcode `.
+    `python -m contsens` and `$ contsens `.
 
     This is your program's entry point.
 
