@@ -8,7 +8,7 @@ class T5DialogueModel(pl.LightningModule):
     @staticmethod
     def add_model_specific_args(parent_parser):
         parser = parent_parser.add_argument_group("T5DialogueModel")
-        parser.add_argument("--model_name", type=str, default="t5-base")
+        parser.add_argument("--model_name", type=str, default="google/t5-v1_1-small")
         return parent_parser
     
     def __init__(self, **kwargs):

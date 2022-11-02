@@ -1,16 +1,32 @@
-Sentence shuffling
+Sentence shuffling 
 
-t5 base size: 
-2022-10-30 22:52:07.665 | INFO     | __main__:<module>:49 - loss results: orig - 4.867059308703583 | perturbed - 4.868017109313814
+t5-v1_1-small 
+(sample 3, split by spacy sentencizer)
+loss results: orig - 5.198 | perturbed - 6.777050
 
-small size: 
-2022-10-31 11:07:57.277 | INFO     | __main__:<module>:51 - loss results: orig - 4.867066248808757 | perturbed - 4.8777285590030175
+(shuffle all, split by \n)
+loss results: orig - 5.841 | perturbed - 5.816610
 
-large size: 
-2022-10-31 11:09:18.958 | INFO     | __main__:<module>:51 - loss results: orig - 4.085505152692889 | perturbed - 4.170650357066995
+(sample 3, split by \n)
+loss results: orig - 5.841 | perturbed - 7.556785
 
-xl size: 
-2022-10-31 11:32:38.710 | INFO     | __main__:<module>:51 - loss results: orig - 3.785248004563964 | perturbed - 3.792963755012739
 
-xl size with 200 
-2022-10-31 11:35:34.013 | INFO     | __main__:<module>:51 - loss results: orig - 3.8055995008838712 | perturbed - 3.797685482015657
+loss results: orig - 7.642 | perturbed - 6.701958
+
+last sentence: 
+loss results: orig - 6.451 | perturbed - 9.805223
+
+one epoch dialogue model 
+random text
+loss results: orig - 2.356 | perturbed - 2.765727
+
+sentence shuffle 
+loss results: orig - 2.356 | perturbed - 2.419221
+
+
+ten epoch dialogue model 
+random text 
+loss results: orig - 2.110 | perturbed - 2.866401
+
+sentence shuffle
+loss results: orig - 2.110 | perturbed - 2.268212
