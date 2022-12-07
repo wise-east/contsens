@@ -34,7 +34,7 @@ def train(args):
 def main(): 
     parser = ArgumentParser()
     parser.add_argument("--seed", type=int, default=42)
-    parser.add_argument("--max_epoch", type=int, default=1)
+    parser.add_argument("--max_epoch", type=int, default=10)
     parser = T5DialogueModel.add_model_specific_args(parser)
     parser = DailyDialogDataLoader.add_data_specific_args(parser)
     # parser = pl.Trainer.add_argparse_args(parser)

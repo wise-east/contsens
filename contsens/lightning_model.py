@@ -1,6 +1,6 @@
 import pytorch_lightning as pl 
 from torch import optim
-from transformers import T5ForConditionalGeneration, T5Tokenizer
+from transformers import T5ForConditionalGeneration, T5Tokenizer, AutoConfig
 from pytorch_lightning.callbacks import LearningRateMonitor, ModelCheckpoint, EarlyStopping
 
 class T5DialogueModel(pl.LightningModule): 
@@ -9,13 +9,20 @@ class T5DialogueModel(pl.LightningModule):
     def add_model_specific_args(parent_parser):
         parser = parent_parser.add_argument_group("T5DialogueModel")
         parser.add_argument("--model_name", type=str, default="google/t5-v1_1-small")
+        parser.add_argument("--learning_rate", type=float, default=5e-5)
+        parser.add_argument("--from_scratch", action="store_true")
         return parent_parser
     
     def __init__(self, **kwargs):
         super().__init__()
         self.save_hyperparameters()
         self.model_name = self.hparams.model_name 
-        self.model = T5ForConditionalGeneration.from_pretrained(self.model_name)
+        
+        if hasattr(self.hparams, "from_scratch") and self.hparams.from_scratch: 
+            config = AutoConfig.from_pretrained(self.model_name)
+            self.model = T5ForConditionalGeneration(config)
+        else: 
+            self.model = T5ForConditionalGeneration.from_pretrained(self.model_name)
         self.tokenizer = T5Tokenizer.from_pretrained(self.model_name)
         self.set_callbacks()
         
@@ -52,18 +59,23 @@ class T5DialogueModel(pl.LightningModule):
         return loss 
     
     def configure_optimizers(self): 
-        optimizer = optim.Adam(self.parameters(), lr=1e-3)
+        optimizer = optim.Adam(self.parameters(), lr=self.hparams.learning_rate)
         return optimizer 
     
     def set_callbacks(self):
         """set callbacks to use for the trainer"""
 
+        if hasattr(self.hparams, "from_scratch") and self.hparams.from_scratch: 
+            model_name = f"{self.model_name}_scratch_"        
+        else: 
+            model_name = f"{self.model_name}_"
+            
         checkpoint_callback = ModelCheckpoint(
             dirpath="results",
             save_top_k=1,
             monitor="val_loss",
             mode="min",
-            filename=f"{self.model_name}_"+'{epoch}-{step}-{val_loss:.2f}', 
+            filename=model_name+'{epoch}-{step}-{val_loss:.2f}', 
         )
         lr_monitor = LearningRateMonitor(logging_interval="step")
 

@@ -297,3 +297,4 @@ data/
 lightning_logs/
 results/
 .vscode/
+*.out
